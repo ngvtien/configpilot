@@ -1,0 +1,45 @@
+.value-editor-wrapper {
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* Ensure the Helm Values Editor title is prominent */
+  .value-editor-title {
+    font-size: 1.75rem !important;
+    font-weight: bold !important;
+    color: #1a202c !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  /* Make section headers visible */
+  .section-title,
+  .array-section-label {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    color: #0f766e !important;
+    font-weight: 600 !important;
+    margin-bottom: 12px !important;
+    font-size: 1.1rem !important;
+    border-bottom: 1px solid #0f766e !important;
+    padding-bottom: 8px !important;
+  }
+  
+  /* Fix for form section headers in the navigation */
+  .form-section-header {
+    color: #ffffff !important;
+    background-color: #1e3a5f !important;
+    padding: 8px 16px !important;
+    font-size: 12px !important;
+    font-weight: bold !important;
+    letter-spacing: 1px !important;
+    text-transform: uppercase !important;
+    border-top: 1px solid #2c4a6e !important;
+    border-bottom: 1px solid #0f2744 !important;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5) !important;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  

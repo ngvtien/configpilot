@@ -1,0 +1,43 @@
+{
+  "name": "helm-editor-electron",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/electron/main.js",
+  "scripts": {
+    "dev": "concurrently \"npm:electron-start\" \"npm:frontend\"",
+    "frontend": "vite --debug",
+    "electron-start": "npm run electron-build && electron dist/electron/main.js",
+    "electron-build": "tsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "handlebars": "^4.7.8",
+    "highlight.js": "^11.11.1",
+    "js-yaml": "^4.1.0",
+    "minimatch": "^3.1.2",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-jsonschema-form": "^1.8.1",
+    "react-syntax-highlighter": "^15.6.1",
+    "@monaco-editor/react": "^4.5.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.3",
+    "@types/react": "^19.1.2",
+    "@types/react-dom": "^19.1.3",
+    "@vitejs/plugin-react": "^4.4.1",
+    "concurrently": "^9.1.2",
+    "electron": "^36.1.0",
+    "electron-builder": "^26.0.12",
+    "electron-forge": "^5.2.4",
+    "prettier": "^3.5.3",
+    "prettier-plugin-jsdoc": "^1.3.2",
+    "prettier-plugin-sh": "^0.17.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.4"
+  }
+}

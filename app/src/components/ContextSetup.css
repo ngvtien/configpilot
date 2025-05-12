@@ -1,0 +1,46 @@
+.context-setup-container {
+  padding: var(--spacing-6);
+}
+
+.context-form {
+  max-width: 800px;
+}
+
+.context-setup {
+  padding: 20px;
+  color: white;
+}
+
+.context-setup-title {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.context-setup-description {
+  color: #aaa;
+  margin-bottom: 24px;
+}
+
+.context-setup-content {
+  padding: 40px;
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  text-align: center;
+  color: #666;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.context-setup-button {
+  background-color: #0f766e;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.context-setup-button:hover {
+  background-color: #0d9488;
+}

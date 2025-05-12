@@ -1,0 +1,311 @@
+.value-editor {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+   
+  .value-editor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  
+  .value-editor-title {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+  
+  .value-editor-actions {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .action-button {
+    padding: 8px 12px;
+    background-color: #0f766e;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s;
+  }
+  
+  .action-button:hover {
+    background-color: #0e6b63;
+  }
+  
+  .value-editor-content {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+    gap: 16px;
+    padding: 16px;
+  }
+   
+  .main-content {
+    flex: 2; /* Takes 2 parts of the available space */
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    overflow: hidden;
+    min-width: 0; /* Important for proper flex item sizing */
+  }
+   
+  .form-editor-container {
+    flex: 1;
+    overflow: auto;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+   
+  .form-container {
+    padding: 16px;
+  }
+  
+  .form-field {
+    margin-bottom: 12px;
+  }
+  
+  .form-field.horizontal {
+    display: flex;
+    align-items: center;
+  }
+  
+  .form-field.horizontal label {
+    width: 150px;
+    font-weight: 500;
+    margin-right: 16px;
+    color: #4a5568;
+  }
+  
+  .form-field input[type="text"],
+  .form-field input[type="number"] {
+    flex: 1;
+    padding: 8px 12px;
+    border: none;
+    border-bottom: 1px solid #cbd5e0;
+    border-radius: 0;
+    background-color: transparent;
+    font-size: 14px;
+    transition: border-color 0.2s;
+  }
+  
+  .form-field input[type="text"]:focus,
+  .form-field input[type="number"]:focus {
+    outline: none;
+    border-bottom: 2px solid #0f766e;
+  }
+  
+  .form-section-group {
+    margin-bottom: 24px;
+  }
+  
+  .section-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #2d3748;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  
+  .form-array-field {
+    margin-bottom: 24px;
+  }
+  
+  .array-section-label {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #2d3748;
+  }
+  
+  .array-items {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .array-item {
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 12px;
+  }
+  
+  .object-array-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .input-wrapper {
+    display: flex;
+    align-items: center;
+    flex: 1;
+  }
+  
+  .delete-button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 8px;
+    transition: background-color 0.2s;
+  }
+  
+  .delete-button:hover {
+    background-color: #d32f2f;
+  }
+  
+  .add-item-button {
+    padding: 8px 12px;
+    background-color: #0f766e;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    align-self: flex-start;
+    margin-top: 8px;
+    transition: background-color 0.2s;
+  }
+  
+  .add-item-button:hover {
+    background-color: #0e6b63;
+  }
+  
+  .yaml-editor-container {
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: height 0.3s;
+  }
+  
+  .yaml-editor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 16px;
+    background-color: #2d3748;
+    color: white;
+  }
+  
+  .yaml-editor-header h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
+  }
+  
+  .yaml-editor-actions {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .editor-action-button {
+    padding: 4px 8px;
+    background-color: #4a5568;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background-color 0.2s;
+  }
+  
+  .editor-action-button:hover {
+    background-color: #718096;
+  }
+  
+/* Ensure the Monaco editor container doesn't overflow */
+.monaco-editor-wrapper {
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  .value-display-panel {
+    flex: 1; /* Takes 1 part of the available space */
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    min-width: 0; /* Important for proper flex item sizing */
+  }
+  
+  .value-display-tabs {
+    display: flex;
+    background-color: #f1f5f9;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  
+  .tab-button {
+    padding: 8px 16px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    color: #64748b;
+    transition: background-color 0.2s;
+  }
+  
+  .tab-button:hover {
+    background-color: #e2e8f0;
+  }
+  
+  .tab-button.active {
+    background-color: #ffffff;
+    color: #0f766e;
+    font-weight: 500;
+    border-bottom: 2px solid #0f766e;
+  }
+  
+  .value-display {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .value-display-container {
+    height: 100%;
+    position: relative;
+  }
+  
+  .copy-button {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    padding: 4px 8px;
+    background-color: rgba(15, 118, 110, 0.8);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background-color 0.2s;
+  }
+  
+  .copy-button:hover {
+    background-color: rgba(15, 118, 110, 1);
+  }
+  
+  .loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-size: 16px;
+    color: #64748b;
+  }
+  

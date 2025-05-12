@@ -1,0 +1,248 @@
+body {
+  margin: 0;
+  font-family: var(--font-family-base);
+}
+
+.app-layout {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar {
+  background: #121212;
+  color: white;
+  width: 240px;
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-4);
+}
+
+.logo {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  margin-bottom: var(--spacing-2);
+  letter-spacing: -0.01em;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.status-indicator {
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 20px;
+}
+
+.role-container {
+  margin-bottom: var(--spacing-4);
+}
+
+.role {
+  display: flex;
+  align-items: flex-start;
+  padding: 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-bottom: 8px;
+}
+
+.role:hover {
+  background-color: #1e1e1e;
+}
+
+.role.active {
+  background-color: #1e1e1e;
+}
+
+.role-icon {
+  margin-right: 12px;
+  font-size: 20px;
+}
+
+.role-info {
+  flex: 1;
+}
+
+.role-name {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.role-desc {
+  font-size: 12px;
+  color: #aaa;
+}
+
+.tools-section {
+  margin-top: 8px;
+}
+
+.tools-header {
+  background-color: #0f766e;
+  color: white;
+  padding: 8px 12px;
+  margin: 0;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+.tools-list {
+  display: flex;
+  flex-direction: column;
+  margin-top: 8px;
+}
+
+.tool {
+  display: flex;
+  align-items: flex-start;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+  margin-bottom: 4px;
+}
+
+.tool:hover {
+  background-color: #1e1e1e;
+}
+
+.tool.active {
+  background-color: #1e1e1e;
+  border-left: 3px solid #0f766e;
+}
+
+.tool-icon {
+  margin-right: 8px;
+  font-size: 16px;
+}
+
+.tool-info {
+  flex: 1;
+}
+
+.tool-name {
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.tool-desc {
+  font-size: 11px;
+  color: #888;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.main-nav,
+.dev-nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.dev-nav {
+  margin-bottom: var(--spacing-4);
+}
+
+.nav-section-title {
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  padding: var(--spacing-2) var(--spacing-4);
+  letter-spacing: 0.05em;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sidebar button {
+  background: none;
+  border: none;
+  color: white;
+  padding: var(--spacing-3) var(--spacing-4);
+  text-align: left;
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: var(--spacing-1);
+  border-radius: var(--radius-md);
+  transition: background-color 0.2s;
+}
+
+.sidebar button.active {
+  background: var(--color-secondary);
+  font-weight: 600;
+}
+
+.sidebar button:hover:not(.active) {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.main-content {
+  flex: 1;
+  padding: 0;
+  background: var(--color-background);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.context-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0f766e;
+  padding: 0 16px;
+  height: 48px;
+  color: white;
+}
+
+.context-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-4);
+}
+
+.context-item {
+  font-size: var(--font-size-sm);
+}
+
+.mode-indicator {
+  font-size: 12px;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.settings-btn {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: none;
+  padding: 4px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.placeholder-content {
+  margin: 40px;
+  padding: 40px;
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  text-align: center;
+  color: #666;
+  font-style: italic;
+}
+
+.dev-mode-toggle {
+  margin-top: var(--spacing-2);
+  background-color: rgba(255, 0, 0, 0.2) !important;
+}
+
+.dev-mode-hint {
+  font-size: var(--font-size-xs);
+  color: rgba(255, 255, 255, 0.4);
+  padding: var(--spacing-2) var(--spacing-4);
+  margin-top: var(--spacing-2);
+}

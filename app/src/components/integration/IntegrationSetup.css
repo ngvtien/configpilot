@@ -1,0 +1,39 @@
+.integration-setup {
+    padding: 20px;
+    color: white;
+  }
+  
+  .integration-setup-title {
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
+  
+  .integration-setup-description {
+    color: #aaa;
+    margin-bottom: 24px;
+  }
+  
+  .integration-setup-content {
+    padding: 40px;
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    text-align: center;
+    color: #666;
+    font-style: italic;
+    margin-bottom: 20px;
+  }
+  
+  .integration-setup-button {
+    background-color: #0f766e;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .integration-setup-button:hover {
+    background-color: #0d9488;
+  }
+  

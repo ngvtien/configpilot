@@ -1,0 +1,306 @@
+.oci-registry-container {
+    padding: 20px;
+    color: white;
+    height: 100%;
+    overflow: auto;
+  }
+  
+  .page-title {
+    font-size: 24px;
+    margin-bottom: 8px;
+  }
+  
+  .page-description {
+    color: #aaa;
+    margin-bottom: 24px;
+  }
+  
+  .error-message {
+    background-color: rgba(220, 38, 38, 0.1);
+    color: #ef4444;
+    padding: 8px 12px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    border: 1px solid rgba(220, 38, 38, 0.2);
+  }
+  
+  .success-message {
+    background-color: rgba(22, 163, 74, 0.1);
+    color: #22c55e;
+    padding: 8px 12px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    border: 1px solid rgba(22, 163, 74, 0.2);
+  }
+  
+  .registry-section,
+  .charts-section,
+  .help-section {
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 24px;
+  }
+  
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  
+  .section-header h3 {
+    margin: 0;
+    font-size: 18px;
+  }
+  
+  .action-button {
+    background-color: #1e1e1e;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .action-button:hover {
+    background-color: #2a2a2a;
+  }
+  
+  .add-registry-form {
+    background-color: #1e1e1e;
+    border-radius: 4px;
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+  
+  .form-group {
+    margin-bottom: 12px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 14px;
+    color: #aaa;
+  }
+  
+  .form-group input,
+  .form-group select {
+    width: 100%;
+    padding: 8px;
+    background-color: #2a2a2a;
+    border: 1px solid #333;
+    border-radius: 4px;
+    color: white;
+    font-size: 14px;
+  }
+  
+  .form-group input:focus,
+  .form-group select:focus {
+    outline: none;
+    border-color: #0f766e;
+  }
+  
+  .auth-toggle {
+    display: flex;
+    align-items: center;
+  }
+  
+  .auth-toggle label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .auth-toggle input[type="checkbox"] {
+    width: auto;
+    margin-right: 8px;
+  }
+  
+  .form-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 16px;
+  }
+  
+  .primary-button {
+    background-color: #0f766e;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  
+  .primary-button:hover {
+    background-color: #0d9488;
+  }
+  
+  .danger-button {
+    background-color: #dc2626;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .danger-button:hover {
+    background-color: #b91c1c;
+  }
+  
+  .registry-list {
+    margin-bottom: 16px;
+  }
+  
+  .registry-selector {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  
+  .registry-selector label {
+    margin-right: 8px;
+    font-size: 14px;
+    color: #aaa;
+  }
+  
+  .registry-selector select {
+    flex: 1;
+    padding: 8px;
+    background-color: #2a2a2a;
+    border: 1px solid #333;
+    border-radius: 4px;
+    color: white;
+    font-size: 14px;
+  }
+  
+  .registry-details {
+    background-color: #1e1e1e;
+    border-radius: 4px;
+    padding: 16px;
+  }
+  
+  .registry-details h4 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-size: 16px;
+  }
+  
+  .detail-item {
+    display: flex;
+    margin-bottom: 8px;
+  }
+  
+  .detail-label {
+    width: 120px;
+    font-weight: 500;
+    color: #aaa;
+  }
+  
+  .detail-value {
+    flex: 1;
+  }
+  
+  .charts-list {
+    overflow-x: auto;
+  }
+  
+  .charts-list table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .charts-list th,
+  .charts-list td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #333;
+  }
+  
+  .charts-list th {
+    font-weight: 500;
+    color: #aaa;
+    font-size: 14px;
+  }
+  
+  .charts-list tr:hover {
+    background-color: #1e1e1e;
+  }
+  
+  .charts-list tr.selected {
+    background-color: rgba(15, 118, 110, 0.1);
+  }
+  
+  .push-button {
+    background-color: #0f766e;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-size: 12px;
+  }
+  
+  .push-button:hover:not(:disabled) {
+    background-color: #0d9488;
+  }
+  
+  .push-button:disabled {
+    background-color: #333;
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+  
+  .empty-state {
+    padding: 24px;
+    text-align: center;
+    color: #666;
+    font-style: italic;
+    background-color: #1e1e1e;
+    border-radius: 4px;
+  }
+  
+  .help-section h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-size: 18px;
+  }
+  
+  .help-section p {
+    margin-bottom: 16px;
+    line-height: 1.5;
+  }
+  
+  .command-example {
+    background-color: #1e1e1e;
+    border-radius: 4px;
+    padding: 16px;
+    margin-top: 16px;
+  }
+  
+  .command-example h4 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 16px;
+  }
+  
+  .command-example pre {
+    margin: 0;
+    padding: 12px;
+    background-color: #2a2a2a;
+    border-radius: 4px;
+    overflow-x: auto;
+  }
+  
+  .command-example code {
+    font-family: monospace;
+    font-size: 14px;
+    color: #d4d4d4;
+  }
+  

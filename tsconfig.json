@@ -1,0 +1,34 @@
+// {
+//   "compilerOptions": {
+//     "target": "ES2020",
+//     "module": "CommonJS",
+//     "strict": true,
+//     "esModuleInterop": true,
+//     "moduleResolution": "node",
+//     "outDir": "dist",
+//     "rootDir": ".",
+//     "resolveJsonModule": true,
+//     "skipLibCheck": true
+//   },
+//   "include": [
+//     "electron/*.ts"
+//   ]
+// }
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "CommonJS",
+    "strict": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "outDir": "dist",
+    "rootDir": ".",
+    "resolveJsonModule": true,
+    "skipLibCheck": true
+  },
+  "include": [
+    "electron/*.ts",
+    "*.d.ts",     // Add this line to include declaration files
+    "types/**/*"  // This ensures your types directory is included
+  ]
+}

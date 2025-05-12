@@ -1,0 +1,131 @@
+/* Integration Setup Styles */
+.integration-setup-layout {
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 48px);
+    padding: var(--spacing-6);
+  }
+  
+  .integration-tabs {
+    display: flex;
+    border-bottom: 1px solid var(--color-border);
+    margin-bottom: var(--spacing-4);
+  }
+  
+  .integration-tab {
+    padding: var(--spacing-2) var(--spacing-4);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    transition: all 0.2s;
+  }
+  
+  .integration-tab.active {
+    background-color: var(--color-background);
+    border-bottom: 2px solid var(--color-primary);
+    color: var(--color-primary);
+  }
+  
+  .integration-tab:hover:not(.active) {
+    background-color: rgba(0, 0, 0, 0.03);
+  }
+  
+  .integration-content {
+    flex: 1;
+    overflow-y: auto;
+  }
+  
+  .integration-section {
+    max-width: 800px;
+  }
+  
+  .integration-summary {
+    margin-top: var(--spacing-6);
+    padding: var(--spacing-4);
+    background-color: var(--color-surface-variant);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+  }
+  
+  .integration-summary h3 {
+    margin-top: 0;
+    margin-bottom: var(--spacing-2);
+    font-size: var(--font-size-lg);
+  }
+  
+  .summary-items {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2);
+  }
+  
+  .summary-item {
+    display: flex;
+    align-items: center;
+  }
+  
+  .summary-label {
+    font-weight: 500;
+    width: 150px;
+    color: var(--color-text-secondary);
+  }
+  
+  .summary-value {
+    color: var(--color-text-primary);
+  }
+  
+  .integration-actions {
+    margin-top: var(--spacing-4);
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  /* Status indicators */
+  .status-healthy {
+    color: var(--color-success);
+  }
+  
+  .status-degraded {
+    color: var(--color-error);
+  }
+  
+  .status-progressing {
+    color: var(--color-info);
+  }
+  
+  .status-suspended {
+    color: var(--color-warning);
+  }
+  
+  .loading-indicator {
+    padding: var(--spacing-4);
+    color: var(--color-text-tertiary);
+  }
+  
+  .error-message {
+    padding: var(--spacing-4);
+    color: var(--color-error);
+  }
+  
+  .notice-message {
+    padding: var(--spacing-4);
+    color: var(--color-info);
+  }
+  
+  .field-value {
+    padding: var(--spacing-1) var(--spacing-1);
+    font-size: var(--font-size-base);
+    color: var(--color-text-primary);
+  }
+  
+  .argo-app-details {
+    margin-top: var(--spacing-4);
+    padding: var(--spacing-4);
+    background-color: var(--color-surface-variant);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+  }
+  

@@ -1,0 +1,228 @@
+.form-based-value-editor {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  
+  .editor-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f0f0f0;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .editor-header h2 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  
+  .format-buttons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .format-button {
+    padding: 6px 12px;
+    background-color: #e0e0e0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .format-button.active {
+    background-color: #007bff;
+    color: white;
+    border-color: #0069d9;
+  }
+  
+  .editor-content {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+  }
+  
+  .form-container {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    border-right: 1px solid #ddd;
+  }
+  
+  .yaml-preview {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .form-section-group {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .form-section-group h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #333;
+    text-transform: capitalize;
+  }
+  
+  .form-section {
+    margin-bottom: 15px;
+  }
+  
+  .form-section h3 {
+    margin: 0 0 10px 0;
+    font-size: 14px;
+    color: #555;
+    text-transform: capitalize;
+  }
+  
+  .form-field {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-field label {
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .form-field input[type="text"],
+  .form-field input[type="number"],
+  .form-field select {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  .form-field input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .form-array-field {
+    margin-bottom: 20px;
+  }
+  
+  .form-array-field label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .array-items {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    background-color: #f9f9f9;
+  }
+  
+  .array-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  
+  .array-item input {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  .object-array-item {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    background-color: #fff;
+  }
+  
+  .object-array-item .form-field {
+    margin-bottom: 0;
+    min-width: 200px;
+  }
+  
+  .remove-item-button {
+    margin-left: 10px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #ff4d4f;
+    color: white;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .add-item-button {
+    margin-top: 10px;
+    padding: 6px 12px;
+    background-color: #52c41a;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-size: 16px;
+    color: #666;
+  }
+  
+  .value-display-container {
+    position: relative;
+    height: 100%;
+  }
+  
+  .copy-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 6px 12px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    z-index: 10;
+  }
+  
+  .copy-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    z-index: 1000;
+  }
+  

@@ -1,0 +1,51 @@
+.development-setup-container {
+  padding: var(--spacing-6);
+}
+
+.development-form {
+  max-width: 800px;
+}
+
+.field-input-wrapper input {
+  width: 100%;
+  min-width: 300px;
+}
+
+.development-setup {
+  padding: 20px;
+  color: white;
+}
+
+.development-setup-title {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.development-setup-description {
+  color: #aaa;
+  margin-bottom: 24px;
+}
+
+.development-setup-content {
+  padding: 40px;
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  text-align: center;
+  color: #666;
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.development-setup-button {
+  background-color: #0f766e;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.development-setup-button:hover {
+  background-color: #0d9488;
+}
