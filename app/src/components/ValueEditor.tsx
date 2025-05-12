@@ -1564,12 +1564,12 @@ ${Object.entries(values)
   return (
     <div className="value-editor">
              {/* Context bar */}
-             <div className="context-bar">
+             {/* <div className="context-bar">
                  <div className="context-item">
                      <span className="context-label">Environment:</span>
                      <span className="context-value">{environment}</span>
                  </div>
-                 {/* <div className="context-item">
+                 <div className="context-item">
                      <span className="context-label">Product:</span>
                      <span className="context-value">{product}</span>
                  </div>
@@ -1583,8 +1583,8 @@ ${Object.entries(values)
                  </div>
                  <div className="context-actions">
                      <button className="context-button">Edit Context</button>
-                 </div> */}
-             </div>
+                 </div>
+             </div> */}
 
       <div className="value-editor-header">
         <h2
