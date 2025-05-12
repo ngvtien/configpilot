@@ -993,6 +993,7 @@ type UserRole = "developer" | "devops" | "operations"
 type ViewType =
   | "schema"
   | "values"
+  | "secrets"
   | "chart-builder"
   | "template-editor"
   | "oci-registry"
@@ -1149,7 +1150,7 @@ const AppLayout = ({ initialRole = "developer", initialView }: AppLayoutProps) =
         <div className="sidebar-logo">
           <div className="logo-container">
             <span className="logo-icon" role="img" aria-label="Helm UI">⎈</span>
-            {!sidebarCollapsed && <span className="logo-text">Helm UI</span>}
+            {!sidebarCollapsed && <span className="logo-text">ConfigPilot</span>}
           </div>
           <button className="sidebar-toggle" onClick={() => setSidebarCollapsed(!sidebarCollapsed)}>
             {sidebarCollapsed ? "→" : "←"}
@@ -1209,6 +1210,16 @@ const AppLayout = ({ initialRole = "developer", initialView }: AppLayoutProps) =
                 <span className="nav-icon" role="img" aria-label="Values Editor">📋</span>
                 {!sidebarCollapsed && "Values Editor"}
               </button>
+
+              <button
+                className={`nav-button ${view === "secrets" ? "active" : ""}`}
+                onClick={() => setView("secrets")}
+                title="Secrets Editor"
+              >
+                <span className="nav-icon" role="img" aria-label="Secrets Editor">🔑</span>
+                {!sidebarCollapsed && "Secrets Editor"}
+              </button>
+
               <button
                 className={`nav-button ${view === "chart-builder" ? "active" : ""}`}
                 onClick={() => setView("chart-builder")}

@@ -20,7 +20,7 @@ const Layout: React.FC<LayoutProps> = ({ role, children }) => {
     <div className="layout">
       <header className="app-header" style={{ backgroundColor: headerColor }}>
         <div className="app-title">
-          <h1>Helm UI</h1>
+          <h1>ConfigPilot</h1>
           <span className="role-badge">{role.charAt(0).toUpperCase() + role.slice(1)} Mode</span>
         </div>
         <div className="header-actions">
@@ -29,7 +29,7 @@ const Layout: React.FC<LayoutProps> = ({ role, children }) => {
       </header>
       <main className="app-content">{children}</main>
       <footer className="app-footer">
-        <p>Helm UI - Local Kubeconfig Mode</p>
+        <p>ConfigPilot - Local Kubeconfig Mode</p>
       </footer>
     </div>
   )

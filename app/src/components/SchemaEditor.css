@@ -1847,7 +1847,7 @@ textarea::-webkit-scrollbar-thumb:hover {
 }
 
 .schema-editor-middle-panel {
-  padding: 16px;
+  padding: none;
   background-color: white;
 }
 
@@ -2186,16 +2186,24 @@ textarea::-webkit-scrollbar-thumb:hover {
 .schema-editor-container .property-field input,
 .schema-editor-container .property-field select,
 .schema-editor-container .property-field textarea {
-  background-color: #2a2a2a;
-  color: #d4d4d4;
-  border-color: #333;
+  width: 100%;
+  padding: 8px 0;
+  font-size: 14px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #e5e7eb;
+  border-radius: 0;
+  transition: border-color 0.2s;
+  color: #333;
+  outline: none;
 }
 
 .schema-editor-container .property-field input:focus,
 .schema-editor-container .property-field select:focus,
 .schema-editor-container .property-field textarea:focus {
-  border-color: #0f766e;
-  box-shadow: 0 0 0 2px rgba(15, 118, 110, 0.2);
+  border-bottom: 2px solid #0f766e;
+  margin-bottom: -1px; /* Compensate for the extra 1px to prevent layout shift */
+  box-shadow: none;
 }
 
 .schema-editor-container .update-btn {
@@ -2392,28 +2400,32 @@ textarea::-webkit-scrollbar-thumb:hover {
 .property-field input,
 .property-field select,
 .property-field textarea {
-  padding: 8px 12px;
-  border: 1px solid #e5e7eb;
-  border-radius: 4px;
-  font-size: 14px;
   width: 100%;
-  background-color: #fff;
+  padding: 8px 0;
+  font-size: 14px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #e5e7eb;
+  border-radius: 0;
+  transition: border-color 0.2s;
   color: #333;
-  cursor: text;
+  outline: none;
 }
 
 .property-field select {
-  cursor: pointer;
-  appearance: auto;
+  appearance: none;
+  background-repeat: no-repeat;
+  background-position: right 0 top 50%;
+  background-size: 10px auto;
+  padding-right: 20px;
 }
 
 .property-field input:focus,
 .property-field select:focus,
 .property-field textarea:focus {
-  outline: none;
-  border-color: #2563eb;
-  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
-  background-color: #fff;
+  border-bottom: 2px solid #0f766e;
+  margin-bottom: -1px; /* Compensate for the extra 1px to prevent layout shift */
+  box-shadow: none;
 }
 
 /* Ensure dark mode styles don't override input fields */
@@ -2477,16 +2489,16 @@ textarea::-webkit-scrollbar-thumb:hover {
 .property-field input,
 .property-field select,
 .property-field textarea {
-  padding: 8px 12px;
-  border: 1px solid #e5e7eb;
-  border-radius: 4px;
-  font-size: 14px;
   width: 100%;
-  background-color: #fff !important;
-  color: #333 !important;
-  cursor: text;
-  z-index: 10;
-  position: relative;
+  padding: 8px 0;
+  font-size: 14px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid #e5e7eb;
+  border-radius: 0;
+  transition: border-color 0.2s;
+  color: #333;
+  outline: none;
 }
 
 .property-field select {
@@ -2498,9 +2510,7 @@ textarea::-webkit-scrollbar-thumb:hover {
 .property-field select:focus,
 .property-field textarea:focus {
   outline: none;
-  border-color: #2563eb;
-  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
-  background-color: #fff !important;
+  border-bottom: 2px solid #0f766e;
 }
 
 /* Make sure the property editor form is clearly interactive */
@@ -2548,4 +2558,31 @@ textarea::-webkit-scrollbar-thumb:hover {
   outline: none;
   white-space: pre;
   tab-size: 2;
+}
+
+/* Add these styles for the new icon button */
+.schema-editor-icon-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: none;
+  border-radius: 4px;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  position: relative;
+}
+
+.schema-editor-icon-button:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.schema-editor-icon-button:active {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.copy-icon {
+  font-size: 24px;
 }
