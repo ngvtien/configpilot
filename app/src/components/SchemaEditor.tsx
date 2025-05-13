@@ -2255,9 +2255,6 @@ const SchemaEditor: React.FC<SchemaEditorProps> = ({ schemaPath = "/src/mock", o
           style={{
             fontSize: "1.75rem",
             fontWeight: "bold",
-            color: "#1a202c",
-            marginBottom: "1rem",
-            paddingBottom: "0.5rem",
           }}
         >
           JSON Schema Editor

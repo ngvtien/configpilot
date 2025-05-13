@@ -25,8 +25,7 @@
 }
 
 .basic-schema-editor-header {
-  padding: 16px;
-  border-bottom: 1px solid #e5e7eb;
+  padding: none;
   background-color: #f9fafb;
   display: flex;
   justify-content: space-between;
@@ -1867,7 +1866,7 @@ textarea::-webkit-scrollbar-thumb:hover {
 
 .schema-editor-resizer:hover,
 .schema-editor-resizer:active {
-  background-color: #2563eb;
+  background-color: #6b7280;
 }
 
 .property-tree-container {

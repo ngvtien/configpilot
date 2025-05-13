@@ -1128,8 +1128,8 @@ const AppLayout = ({ initialRole = "developer", initialView }: AppLayoutProps) =
             <SecretEditor
               //schema={currentSchema}
               environment={environment}
-              //product={product}
-              //customer={customer}
+              product={product}
+              customer={customer}
               //version={version}
               //userRole={userRole}
             />
