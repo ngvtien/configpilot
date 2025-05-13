@@ -986,8 +986,8 @@ import React from "react"
 import { useState, useEffect } from "react"
 import SchemaEditor from "./SchemaEditor"
 import ValueEditor from "./ValueEditor"
+import SecretEditor from "./SecretEditor"
 import "./AppLayout.css"
-import "./ValueEditorWrapper.css"
 
 type UserRole = "developer" | "devops" | "operations"
 type ViewType =
@@ -1123,6 +1123,17 @@ const AppLayout = ({ initialRole = "developer", initialView }: AppLayoutProps) =
             userRole={userRole}
           />
         )
+        case "secrets":
+          return (
+            <SecretEditor
+              //schema={currentSchema}
+              environment={environment}
+              //product={product}
+              //customer={customer}
+              //version={version}
+              //userRole={userRole}
+            />
+          )        
       case "kubernetes":
         return (
           <div className="coming-soon">

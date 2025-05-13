@@ -1299,7 +1299,7 @@ ${Object.entries(values)
               </div>
             </div>
           ))}
-          <button className="add-item-button" onClick={() => addArrayItem(path, type)}>
+          <button className="add-item-button" type="button" onClick={() => addArrayItem(path, type)}>
             + Add Item
           </button>
         </div>
@@ -1378,7 +1378,7 @@ ${Object.entries(values)
               </div>
             </div>
           ))}
-          <button className="add-item-button" onClick={() => addArrayItem(path, "object", true)}>
+          <button className="add-item-button" type="button" onClick={() => addArrayItem(path, "object", true)}>
             + Add Item
           </button>
         </div>
@@ -1472,7 +1472,7 @@ ${Object.entries(values)
                     </div>
                   </div>
                 ))}
-                <button className="add-item-button" onClick={() => addArrayItem(path, "object", true)}>
+                <button className="add-item-button" type="button" onClick={() => addArrayItem(path, "object", true)}>
                   + Add Item
                 </button>
               </div>
@@ -1529,6 +1529,7 @@ ${Object.entries(values)
                 ))}
                 <button
                   className="add-item-button"
+                  type="button"
                   onClick={() => addArrayItem(path, typeof value[0] === "number" ? "number" : "text")}
                 >
                   + Add Item
@@ -1563,29 +1564,6 @@ ${Object.entries(values)
 
   return (
     <div className="value-editor">
-             {/* Context bar */}
-             {/* <div className="context-bar">
-                 <div className="context-item">
-                     <span className="context-label">Environment:</span>
-                     <span className="context-value">{environment}</span>
-                 </div>
-                 <div className="context-item">
-                     <span className="context-label">Product:</span>
-                     <span className="context-value">{product}</span>
-                 </div>
-                 <div className="context-item">
-                     <span className="context-label">Customer:</span>
-                     <span className="context-value">{customer}</span>
-                 </div>
-                 <div className="context-item">
-                     <span className="context-label">Version:</span>
-                     <span className="context-value">{version}</span>
-                 </div>
-                 <div className="context-actions">
-                     <button className="context-button">Edit Context</button>
-                 </div>
-             </div> */}
-
       <div className="value-editor-header">
         <h2
           className="value-editor-title"
