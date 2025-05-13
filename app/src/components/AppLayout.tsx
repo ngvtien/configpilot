@@ -1299,6 +1299,15 @@ const AppLayout = ({ initialRole = "developer", initialView }: AppLayoutProps) =
                 <span className="nav-icon" role="img" aria-label="Values Editor">📋</span>
                 {!sidebarCollapsed && "Values Editor"}
               </button>
+
+              <button
+                className={`nav-button ${view === "secrets" ? "active" : ""}`}
+                onClick={() => setView("secrets")}
+                title="Secrets Editor"
+              >
+                <span className="nav-icon" role="img" aria-label="Secrets Editor">🔑</span>
+                {!sidebarCollapsed && "Secrets Editor"}
+              </button>
             </div>
           )}
 

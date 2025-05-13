@@ -862,7 +862,7 @@ textarea::-webkit-scrollbar-thumb:hover {
 .property-tree-container {
   flex: 1;
   overflow: auto;
-  padding: 12px;
+  padding: none;
 }
 
 .property-item {
@@ -1873,7 +1873,7 @@ textarea::-webkit-scrollbar-thumb:hover {
 .property-tree-container {
   flex: 1;
   overflow: auto;
-  padding: 12px;
+  padding: none;
 }
 
 .schema-editor-panel-actions {
@@ -1885,7 +1885,7 @@ textarea::-webkit-scrollbar-thumb:hover {
 .schema-editor-panel-actions button {
   width: 100%;
   padding: 6px 12px;
-  background-color: #2563eb;
+  background-color: #0f766e;
   color: white;
   border: none;
   border-radius: 4px;
@@ -1894,7 +1894,7 @@ textarea::-webkit-scrollbar-thumb:hover {
 }
 
 .schema-editor-panel-actions button:hover {
-  background-color: #1d4ed8;
+  background-color: #0e6b63;
 }
 
 .schema-editor-textarea {
@@ -1970,7 +1970,7 @@ textarea::-webkit-scrollbar-thumb:hover {
 }
 
 .property-children {
-  margin-left: 16px;
+  margin-left: 8px;
   border-left: 1px solid #e5e7eb;
   padding-left: 8px;
 }
@@ -2272,7 +2272,7 @@ textarea::-webkit-scrollbar-thumb:hover {
 .property-tree-container {
   flex: 1;
   overflow: auto;
-  padding: 12px;
+  padding: none;
 }
 
 .visual-editor-panel-actions {
