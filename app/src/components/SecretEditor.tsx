@@ -1564,7 +1564,7 @@ const SecretEditor: React.FC<SecretEditorProps> = ({
                   type="text"
                   value={editVaultPath}
                   onChange={(e) => setEditVaultPath(e.target.value)}
-                  placeholder={`kv/${customer}/${environment}/${product}`}
+                  placeholder={(`kv/${customer}/${environment}/${product}`).toLocaleLowerCase()}
                   className="lowercase-input"
                 />
                 <div className="field-hint">
@@ -1591,16 +1591,49 @@ const SecretEditor: React.FC<SecretEditorProps> = ({
                     {showSecretValue ? "🙈 Hide" : "👁️ Show"}
                   </button>
                 </div>
+
                 <textarea
                   value={secretInputValue}
                   onChange={(e) => {
-                    // Simple direct approach - just update the state with a reasonable limit
-                    setSecretInputValue(e.target.value)
+                    try {
+                      // Get the new value
+                      const newValue = e.target.value
+
+                      // Check if the value is too large (over 5MB as an example threshold)
+                      if (newValue.length > 5000000) {
+                        showToast("Warning: Very large input detected. This may cause performance issues.")
+                      }
+
+                      // Use requestAnimationFrame to avoid blocking the UI
+                      requestAnimationFrame(() => {
+                        try {
+                          setSecretInputValue(newValue)
+                        } catch (error) {
+                          console.error("Error updating secret value:", error)
+                          showToast("Error: The value is too large to process")
+                        }
+                      })
+                    } catch (error) {
+                      console.error("Error in textarea change handler:", error)
+                      showToast("Error processing input")
+                    }
+                  }}
+                  onPaste={(e) => {
+                    try {
+                      const pastedText = e.clipboardData.getData("text")
+                      if (pastedText.length > 1000000) {
+                        e.preventDefault() // Prevent the default paste
+                        showToast("Processing large paste...")
+                        safelySetSecretValue(pastedText)
+                      }
+                    } catch (error) {
+                      console.error("Error handling paste:", error)
+                      showToast("Error processing pasted content")
+                    }
                   }}
                   placeholder="Enter secret value here..."
                   rows={5}
-                  // Use a reasonable maxLength to prevent browser crashes
-                  maxLength={1000000}
+                  maxLength={10000000} // Increased but still has a reasonable limit
                   className={showSecretValue ? "" : "masked-input"}
                 />
               </div>
