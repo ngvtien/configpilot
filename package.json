@@ -14,15 +14,17 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
+    "@kubernetes/client-node": "^1.2.0",
+    "@monaco-editor/react": "^4.5.1",
     "handlebars": "^4.7.8",
     "highlight.js": "^11.11.1",
     "js-yaml": "^4.1.0",
+    "lucide-react": "^0.510.0",
     "minimatch": "^3.1.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-jsonschema-form": "^1.8.1",
-    "react-syntax-highlighter": "^15.6.1",
-    "@monaco-editor/react": "^4.5.1"
+    "react-syntax-highlighter": "^15.6.1"
   },
   "devDependencies": {
     "@types/node": "^22.15.3",

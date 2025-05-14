@@ -124,11 +124,11 @@ export const Splitter: React.FC<SplitterProps> = ({
         style={{
           cursor: isHorizontal ? "col-resize" : "row-resize",
           [isHorizontal ? "width" : "height"]: "6px",
-          background: "var(--color-border)",
+          //background: "var(--color-border)",
           position: "relative",
           zIndex: 10,
-          [isHorizontal ? "borderLeft" : "borderTop"]: "1px solid var(--color-border-dark)",
-          [isHorizontal ? "borderRight" : "borderBottom"]: "1px solid var(--color-border-dark)",
+          //[isHorizontal ? "borderLeft" : "borderTop"]: "1px solid var(--color-border-dark)",
+          //[isHorizontal ? "borderRight" : "borderBottom"]: "1px solid var(--color-border-dark)",
           flexShrink: 0,
         }}
         onMouseDown={handleMouseDown}

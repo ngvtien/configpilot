@@ -7,6 +7,7 @@ import { tomorrow } from "react-syntax-highlighter/dist/esm/styles/prism"
 import yaml from "js-yaml"
 import Editor from "@monaco-editor/react"
 import "./SecretEditor.css"
+import Splitter from "./Splitter"
 
 interface SecretEditorProps {
   initialValue?: string
@@ -1274,7 +1275,7 @@ const SecretEditor: React.FC<SecretEditorProps> = ({
         </div>
       </div>
 
-      <div className="secret-editor-content">
+      <Splitter direction="horizontal" initialSizes={[67, 33]} minSizes={[40, 20]}>
         {/* Main content */}
         <div className="main-content">
           <div className="form-editor-container">
@@ -1532,7 +1533,7 @@ const SecretEditor: React.FC<SecretEditorProps> = ({
             </div>
           </div>
         </div>
-      </div>
+      </Splitter>
 
       {/* Secret Edit Modal */}
       {editingSecretIndex !== null && (
@@ -1564,12 +1565,10 @@ const SecretEditor: React.FC<SecretEditorProps> = ({
                   type="text"
                   value={editVaultPath}
                   onChange={(e) => setEditVaultPath(e.target.value)}
-                  placeholder={(`kv/${customer}/${environment}/${product}`).toLocaleLowerCase()}
+                  placeholder={`kv/${customer}/${environment}/${product}`.toLocaleLowerCase()}
                   className="lowercase-input"
                 />
-                <div className="field-hint">
-                Default: {(`kv/${customer}/${environment}/${product}`).toLowerCase()}
-                </div>
+                <div className="field-hint">Default: {`kv/${customer}/${environment}/${product}`.toLowerCase()}</div>
               </div>
 
               <div className="modal-field">
