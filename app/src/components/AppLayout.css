@@ -71,7 +71,7 @@ button {
 .sidebar-logo {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center; /* Changed from space-between to center */
   padding: 16px;
   border-bottom: 1px solid var(--sidebar-border);
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), transparent);
@@ -81,6 +81,12 @@ button {
   display: flex;
   align-items: center;
   gap: 12px;
+  cursor: pointer; /* Add cursor pointer to indicate it's clickable */
+  transition: transform 0.2s ease; /* Add transition for a subtle effect */
+}
+
+.logo-container:hover {
+  transform: scale(1.02); /* Slightly scale up on hover */
 }
 
 .app-logo-sidebar {
@@ -121,6 +127,7 @@ button {
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 }
 
+/* These styles are kept for reference but no longer used for the toggle button
 .sidebar-toggle {
   background: transparent;
   border: none;
@@ -134,6 +141,7 @@ button {
 .sidebar-toggle:hover {
   background-color: var(--sidebar-hover);
 }
+*/
 
 /* Sidebar Navigation */
 .sidebar-nav {

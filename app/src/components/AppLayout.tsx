@@ -173,15 +173,16 @@ const AppLayout = ({ initialRole = "developer", initialView }: AppLayoutProps) =
       <div className="sidebar">
         {/* Logo */}
         <div className="sidebar-logo">
-          <div className="logo-container">
+          <div
+            className="logo-container"
+            onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
+            title={sidebarCollapsed ? "Expand sidebar" : "Collapse sidebar"}
+          >
             <div className="app-logo-sidebar">
               <div className="app-logo-inner">CP</div>
             </div>
             {!sidebarCollapsed && <span className="logo-text">ConfigPilot</span>}
           </div>
-          <button className="sidebar-toggle" onClick={() => setSidebarCollapsed(!sidebarCollapsed)}>
-            {sidebarCollapsed ? "→" : "←"}
-          </button>
         </div>
 
         {/* Navigation sections */}
