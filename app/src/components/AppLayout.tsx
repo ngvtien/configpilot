@@ -29,6 +29,8 @@ interface AppLayoutProps {
   initialView?: ViewType
 }
 
+const KUBE_CONTEXT_STORAGE_KEY = "kubernetes_context"
+
 const AppLayout = ({ initialRole = "developer", initialView }: AppLayoutProps) => {
   const [userRole, setUserRole] = useState<UserRole>(initialRole)
   const [view, setView] = useState<ViewType>(initialView || (userRole === "developer" ? "schema" : "values"))
@@ -71,26 +73,46 @@ const AppLayout = ({ initialRole = "developer", initialView }: AppLayoutProps) =
         console.error("Error parsing saved context:", e)
       }
     }
+
+    // Load and set Kubernetes context from localStorage
+    const savedKubeContext = localStorage.getItem(KUBE_CONTEXT_STORAGE_KEY)
+    if (savedKubeContext) {
+      console.log("Found saved Kubernetes context:", savedKubeContext)
+      setKubeContext(savedKubeContext)
+
+      // We'll set the context when the component is fully loaded
+      // This avoids issues with the dynamic import
+      setTimeout(async () => {
+        try {
+          const KubernetesService = (await import("../services/KubernetesService")).default
+          if (KubernetesService) {
+            await KubernetesService.setContext(savedKubeContext)
+            console.log("Successfully restored Kubernetes context:", savedKubeContext)
+          }
+        } catch (error) {
+          console.error("Failed to restore Kubernetes context:", error)
+        }
+      }, 1000)
+    }
   }, [])
 
   // Save context settings to localStorage
   const saveContextToLocalStorage = () => {
     try {
-      localStorage.setItem(
-        "helm_editor_context",
-        JSON.stringify({
-          environment,
-          product,
-          customer,
-          version,
-          lastUpdated: new Date().toISOString(),
-        }),
-      )
-      console.log("Saved context to localStorage")
+      const contextData = {
+        environment,
+        product,
+        customer,
+        version,
+        lastUpdated: new Date().toISOString(),
+      }
+      localStorage.setItem("helm_editor_context", JSON.stringify(contextData))
+      console.log("Saved context to localStorage:", contextData)
     } catch (e) {
       console.error("Error saving context to localStorage:", e)
     }
   }
+
 
   // Handle schema changes
   const handleSchemaChange = (schema: any) => {
@@ -135,6 +157,14 @@ const AppLayout = ({ initialRole = "developer", initialView }: AppLayoutProps) =
   const handleKubeContextChange = (contextName: string) => {
     setKubeContext(contextName)
     console.log(`Kubernetes context changed to: ${contextName}`)
+
+    // Save to localStorage
+    try {
+      localStorage.setItem(KUBE_CONTEXT_STORAGE_KEY, contextName)
+      console.log("Saved Kubernetes context to localStorage:", contextName)
+    } catch (e) {
+      console.error("Error saving Kubernetes context to localStorage:", e)
+    }
   }
 
   const renderContent = () => {
@@ -481,6 +511,7 @@ const AppLayout = ({ initialRole = "developer", initialView }: AppLayoutProps) =
               <KubernetesContextSelector
                 onContextChange={handleKubeContextChange}
                 className="header-context-selector"
+                initialContext={kubeContext}
               />
             </div>
           )}
