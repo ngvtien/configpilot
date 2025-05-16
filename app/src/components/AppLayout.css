@@ -74,24 +74,51 @@ button {
   justify-content: space-between;
   padding: 16px;
   border-bottom: 1px solid var(--sidebar-border);
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), transparent);
 }
 
 .logo-container {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
+}
+
+.app-logo-sidebar {
+  width: 32px;
+  height: 32px;
+  background-color: #ebac25;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(235, 172, 37, 0.3);
+  transition: transform 0.2s ease;
+}
+
+.sidebar-logo:hover .app-logo-sidebar {
+  transform: scale(1.05);
+}
+
+.app-logo-inner {
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1;
+  text-align: center;
 }
 
 .logo-icon {
-  width: 24px;
-  height: 24px;
-  color: var(--sidebar-text);
+  display: none; /* We're replacing this with our new logo */
 }
 
 .logo-text {
   font-size: 18px;
   font-weight: 600;
   white-space: nowrap;
+  background: linear-gradient(90deg, #ffffff, #f0f0f0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 }
 
 .sidebar-toggle {
@@ -480,7 +507,7 @@ button {
   white-space: nowrap;
 }
 
-.save-button, 
+.save-button,
 .cancel-button {
   padding: 6px 12px;
   border-radius: 4px;

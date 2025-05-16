@@ -6,8 +6,8 @@ import SchemaEditor from "./SchemaEditor"
 import ValueEditor from "./ValueEditor"
 import SecretEditor from "./SecretEditor"
 import "./AppLayout.css"
-import { KubernetesContextSelector, KubernetesView } from "./kubernetes";
-import "./kubernetes/kubernetes.css";
+import { KubernetesContextSelector, KubernetesView } from "./kubernetes"
+import "./kubernetes/kubernetes.css"
 
 // Add this import at the top of your file
 import LogConsole from "./LogConsole"
@@ -174,9 +174,9 @@ const AppLayout = ({ initialRole = "developer", initialView }: AppLayoutProps) =
         {/* Logo */}
         <div className="sidebar-logo">
           <div className="logo-container">
-            <span className="logo-icon" role="img" aria-label="Helm UI">
-              ⎈
-            </span>
+            <div className="app-logo-sidebar">
+              <div className="app-logo-inner">CP</div>
+            </div>
             {!sidebarCollapsed && <span className="logo-text">ConfigPilot</span>}
           </div>
           <button className="sidebar-toggle" onClick={() => setSidebarCollapsed(!sidebarCollapsed)}>
@@ -477,7 +477,10 @@ const AppLayout = ({ initialRole = "developer", initialView }: AppLayoutProps) =
               <button className="header-link" onClick={() => setIsEditingContext(true)}>
                 Edit Context
               </button>
-              <KubernetesContextSelector onContextChange={handleKubeContextChange}  className="header-context-selector" />
+              <KubernetesContextSelector
+                onContextChange={handleKubeContextChange}
+                className="header-context-selector"
+              />
             </div>
           )}
         </div>
@@ -485,7 +488,7 @@ const AppLayout = ({ initialRole = "developer", initialView }: AppLayoutProps) =
         <div className="content-area">{renderContent()}</div>
       </div>
       {/* Add the LogConsole component */}
-      <LogConsole initialOpen={false} />      
+      <LogConsole initialOpen={false} />
     </div>
   )
 }

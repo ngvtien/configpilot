@@ -3,10 +3,10 @@ import { contextBridge, ipcRenderer } from 'electron';
 import fs from "fs"
 import os from "os"
 import path from "path"
-import log from "electron-log/renderer"
+//import log from "electron-log/renderer"
 
 // Log that preload is running
-log.info("Preload script executing", { source: "preload" })
+//log.info("Preload script executing", { source: "preload" })
 
 contextBridge.exposeInMainWorld('electronAPI', {
   saveYaml: (content: string, env: string) => ipcRenderer.send('save-yaml', content, env),
