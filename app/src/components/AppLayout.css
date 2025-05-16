@@ -507,3 +507,47 @@ button {
 .cancel-button:hover {
   background-color: #e9ecef;
 }
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #fff;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.header-info {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 100%;
+}
+
+.header-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header-label {
+  font-weight: 500;
+  color: #555;
+}
+
+.header-value {
+  font-weight: 600;
+  color: #000;
+  min-width: 60px;
+}
+
+.header-link {
+  background: none;
+  border: none;
+  color: #0070f3;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 0;
+  text-decoration: underline;
+}

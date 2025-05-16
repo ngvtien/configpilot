@@ -1,0 +1,168 @@
+/* Kubernetes Context Selector */
+.k8s-context-selector {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .k8s-context-selector.header-context-selector {
+    margin-left: auto; /* Push to the right */
+    margin-right: 0; /* Remove right margin to dock it fully to the right */
+  }
+  
+  .k8s-context-label {
+    font-weight: 500;
+    color: #555;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+  
+  .k8s-context-dropdown {
+    position: relative;
+  }
+  
+  .k8s-context-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    white-space: nowrap;
+    color: #333;
+    font-weight: 500;
+  }
+  
+  .k8s-context-button:hover {
+    background-color: #e9ecef;
+    border-color: #ced4da;
+  }
+  
+  .k8s-context-icon {
+    font-size: 16px;
+    color: #0f766e; /* Use your app's primary color */
+  }
+  
+  .k8s-context-current {
+    font-weight: 500;
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #333;
+  }
+  
+  .k8s-context-chevron {
+    width: 14px;
+    height: 14px;
+    transition: transform 0.2s;
+    color: #6c757d;
+  }
+  
+  .k8s-context-button[aria-expanded="true"] .k8s-context-chevron {
+    transform: rotate(180deg);
+  }
+  
+  .k8s-context-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 250px;
+    max-height: 300px;
+    overflow-y: auto;
+    background-color: white;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    margin-top: 4px;
+    padding: 8px 0;
+    list-style: none;
+  }
+  
+  .k8s-context-item {
+    padding: 10px 16px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    color: #333;
+    border-left: 3px solid transparent;
+  }
+  
+  .k8s-context-item:hover {
+    background-color: #f8f9fa;
+    border-left-color: #0f766e; /* Use your app's primary color */
+  }
+  
+  .k8s-context-item.active {
+    background-color: #f1f8ff;
+    border-left-color: #0f766e; /* Use your app's primary color */
+  }
+  
+  .k8s-context-check {
+    display: inline-block;
+    margin-right: 6px;
+    color: #0f766e; /* Use your app's primary color */
+    vertical-align: middle;
+  }
+  
+  .k8s-context-name {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: #333;
+  }
+  
+  .k8s-context-details {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 12px;
+    color: #6c757d;
+  }
+  
+  .k8s-context-cluster {
+    display: flex;
+    align-items: center;
+  }
+  
+  .k8s-context-cluster::before {
+    content: "Cluster: ";
+    font-weight: 500;
+    margin-right: 4px;
+    color: #495057;
+  }
+  
+  .k8s-context-namespace {
+    display: flex;
+    align-items: center;
+  }
+  
+  .k8s-context-namespace::before {
+    content: "Namespace: ";
+    font-weight: 500;
+    margin-right: 4px;
+    color: #495057;
+  }
+  
+  .k8s-context-loading,
+  .k8s-context-error {
+    padding: 8px 12px;
+    font-size: 14px;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    background-color: #f8f9fa;
+    color: #333;
+  }
+  
+  .k8s-context-error {
+    color: #dc3545;
+    border-color: #f5c2c7;
+    background-color: #f8d7da;
+  }
+  

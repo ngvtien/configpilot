@@ -6,6 +6,11 @@ import SchemaEditor from "./SchemaEditor"
 import ValueEditor from "./ValueEditor"
 import SecretEditor from "./SecretEditor"
 import "./AppLayout.css"
+import { KubernetesContextSelector, KubernetesView } from "./kubernetes";
+import "./kubernetes/kubernetes.css";
+
+// Add this import at the top of your file
+import LogConsole from "./LogConsole"
 
 type UserRole = "developer" | "devops" | "operations"
 type ViewType =
@@ -40,6 +45,7 @@ const AppLayout = ({ initialRole = "developer", initialView }: AppLayoutProps) =
     customer,
     version,
   })
+  const [kubeContext, setKubeContext] = useState<string>("")
 
   // Load context settings from localStorage on mount
   useEffect(() => {
@@ -126,6 +132,11 @@ const AppLayout = ({ initialRole = "developer", initialView }: AppLayoutProps) =
     )
   }
 
+  const handleKubeContextChange = (contextName: string) => {
+    setKubeContext(contextName)
+    console.log(`Kubernetes context changed to: ${contextName}`)
+  }
+
   const renderContent = () => {
     switch (view) {
       case "schema":
@@ -141,25 +152,10 @@ const AppLayout = ({ initialRole = "developer", initialView }: AppLayoutProps) =
             userRole={userRole}
           />
         )
-        case "secrets":
-          return (
-            <SecretEditor
-              //schema={currentSchema}
-              environment={environment}
-              product={product}
-              customer={customer}
-              //version={version}
-              //userRole={userRole}
-            />
-          )        
+      case "secrets":
+        return <SecretEditor environment={environment} product={product} customer={customer} />
       case "kubernetes":
-        return (
-          <div className="coming-soon">
-            <div className="coming-soon-icon">🚧</div>
-            <h3>Kubernetes Integration Coming Soon</h3>
-            <p>This feature is currently under development.</p>
-          </div>
-        )
+        return <KubernetesView currentContext={kubeContext} />
       default:
         return (
           <div className="coming-soon">
@@ -178,7 +174,9 @@ const AppLayout = ({ initialRole = "developer", initialView }: AppLayoutProps) =
         {/* Logo */}
         <div className="sidebar-logo">
           <div className="logo-container">
-            <span className="logo-icon" role="img" aria-label="Helm UI">⎈</span>
+            <span className="logo-icon" role="img" aria-label="Helm UI">
+              ⎈
+            </span>
             {!sidebarCollapsed && <span className="logo-text">ConfigPilot</span>}
           </div>
           <button className="sidebar-toggle" onClick={() => setSidebarCollapsed(!sidebarCollapsed)}>
@@ -196,7 +194,9 @@ const AppLayout = ({ initialRole = "developer", initialView }: AppLayoutProps) =
                 onClick={() => setUserRole("developer")}
                 title="Developer"
               >
-                <span className="nav-icon" role="img" aria-label="Developer">💻</span>
+                <span className="nav-icon" role="img" aria-label="Developer">
+                  💻
+                </span>
                 {!sidebarCollapsed && "Developer"}
               </button>
 
@@ -205,7 +205,9 @@ const AppLayout = ({ initialRole = "developer", initialView }: AppLayoutProps) =
                 onClick={() => setUserRole("devops")}
                 title="DevOps/Platform"
               >
-                <span className="nav-icon" role="img" aria-label="DevOps">⚙️</span>
+                <span className="nav-icon" role="img" aria-label="DevOps">
+                  ⚙️
+                </span>
                 {!sidebarCollapsed && "DevOps/Platform"}
               </button>
 
@@ -214,7 +216,9 @@ const AppLayout = ({ initialRole = "developer", initialView }: AppLayoutProps) =
                 onClick={() => setUserRole("operations")}
                 title="Operations"
               >
-                <span className="nav-icon" role="img" aria-label="Operations">📊</span>
+                <span className="nav-icon" role="img" aria-label="Operations">
+                  📊
+                </span>
                 {!sidebarCollapsed && "Operations"}
               </button>
             </div>
@@ -228,7 +232,9 @@ const AppLayout = ({ initialRole = "developer", initialView }: AppLayoutProps) =
                 onClick={() => setView("schema")}
                 title="Schema Editor"
               >
-                <span className="nav-icon" role="img" aria-label="Schema Editor">📝</span>
+                <span className="nav-icon" role="img" aria-label="Schema Editor">
+                  📝
+                </span>
                 {!sidebarCollapsed && "Schema Editor"}
               </button>
               <button
@@ -236,7 +242,9 @@ const AppLayout = ({ initialRole = "developer", initialView }: AppLayoutProps) =
                 onClick={() => setView("values")}
                 title="Values Editor"
               >
-                <span className="nav-icon" role="img" aria-label="Values Editor">📋</span>
+                <span className="nav-icon" role="img" aria-label="Values Editor">
+                  📋
+                </span>
                 {!sidebarCollapsed && "Values Editor"}
               </button>
 
@@ -245,7 +253,9 @@ const AppLayout = ({ initialRole = "developer", initialView }: AppLayoutProps) =
                 onClick={() => setView("secrets")}
                 title="Secrets Editor"
               >
-                <span className="nav-icon" role="img" aria-label="Secrets Editor">🔑</span>
+                <span className="nav-icon" role="img" aria-label="Secrets Editor">
+                  🔑
+                </span>
                 {!sidebarCollapsed && "Secrets Editor"}
               </button>
 
@@ -254,7 +264,9 @@ const AppLayout = ({ initialRole = "developer", initialView }: AppLayoutProps) =
                 onClick={() => setView("chart-builder")}
                 title="Chart Builder"
               >
-                <span className="nav-icon" role="img" aria-label="Chart Builder">📊</span>
+                <span className="nav-icon" role="img" aria-label="Chart Builder">
+                  📊
+                </span>
                 {!sidebarCollapsed && "Chart Builder"}
               </button>
               <button
@@ -262,7 +274,9 @@ const AppLayout = ({ initialRole = "developer", initialView }: AppLayoutProps) =
                 onClick={() => setView("template-editor")}
                 title="Template Editor"
               >
-                <span className="nav-icon" role="img" aria-label="Template Editor">📄</span>
+                <span className="nav-icon" role="img" aria-label="Template Editor">
+                  📄
+                </span>
                 {!sidebarCollapsed && "Template Editor"}
               </button>
               <button
@@ -270,7 +284,9 @@ const AppLayout = ({ initialRole = "developer", initialView }: AppLayoutProps) =
                 onClick={() => setView("oci-registry")}
                 title="OCI Registry"
               >
-                <span className="nav-icon" role="img" aria-label="OCI Registry">🗃️</span>
+                <span className="nav-icon" role="img" aria-label="OCI Registry">
+                  🗃️
+                </span>
                 {!sidebarCollapsed && "OCI Registry"}
               </button>
             </div>
@@ -284,7 +300,9 @@ const AppLayout = ({ initialRole = "developer", initialView }: AppLayoutProps) =
                 onClick={() => setView("kubernetes")}
                 title="Kubernetes"
               >
-                <span className="nav-icon" role="img" aria-label="Kubernetes">📦</span>
+                <span className="nav-icon" role="img" aria-label="Kubernetes">
+                  📦
+                </span>
                 {!sidebarCollapsed && "Kubernetes"}
               </button>
               <button
@@ -292,7 +310,9 @@ const AppLayout = ({ initialRole = "developer", initialView }: AppLayoutProps) =
                 onClick={() => setView("argocd")}
                 title="ArgoCD"
               >
-                <span className="nav-icon" role="img" aria-label="ArgoCD">🔄</span>
+                <span className="nav-icon" role="img" aria-label="ArgoCD">
+                  🔄
+                </span>
                 {!sidebarCollapsed && "ArgoCD"}
               </button>
               <button
@@ -300,7 +320,9 @@ const AppLayout = ({ initialRole = "developer", initialView }: AppLayoutProps) =
                 onClick={() => setView("git-repos")}
                 title="Git Repositories"
               >
-                <span className="nav-icon" role="img" aria-label="Git Repositories">📁</span>
+                <span className="nav-icon" role="img" aria-label="Git Repositories">
+                  📁
+                </span>
                 {!sidebarCollapsed && "Git Repositories"}
               </button>
             </div>
@@ -314,7 +336,9 @@ const AppLayout = ({ initialRole = "developer", initialView }: AppLayoutProps) =
                 onClick={() => setView("values")}
                 title="Values Editor"
               >
-                <span className="nav-icon" role="img" aria-label="Values Editor">📋</span>
+                <span className="nav-icon" role="img" aria-label="Values Editor">
+                  📋
+                </span>
                 {!sidebarCollapsed && "Values Editor"}
               </button>
 
@@ -323,7 +347,9 @@ const AppLayout = ({ initialRole = "developer", initialView }: AppLayoutProps) =
                 onClick={() => setView("secrets")}
                 title="Secrets Editor"
               >
-                <span className="nav-icon" role="img" aria-label="Secrets Editor">🔑</span>
+                <span className="nav-icon" role="img" aria-label="Secrets Editor">
+                  🔑
+                </span>
                 {!sidebarCollapsed && "Secrets Editor"}
               </button>
             </div>
@@ -451,12 +477,15 @@ const AppLayout = ({ initialRole = "developer", initialView }: AppLayoutProps) =
               <button className="header-link" onClick={() => setIsEditingContext(true)}>
                 Edit Context
               </button>
+              <KubernetesContextSelector onContextChange={handleKubeContextChange}  className="header-context-selector" />
             </div>
           )}
         </div>
         {/* Content area */}
         <div className="content-area">{renderContent()}</div>
       </div>
+      {/* Add the LogConsole component */}
+      <LogConsole initialOpen={false} />      
     </div>
   )
 }
