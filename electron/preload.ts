@@ -1,13 +1,26 @@
-// import { contextBridge, ipcRenderer } from "electron"
-import { contextBridge, ipcRenderer } from 'electron';
+import { contextBridge, ipcRenderer } from "electron"
 import fs from "fs"
 import os from "os"
 import path from "path"
-//import log from "electron-log/renderer"
+// We'll use a try-catch for the electron-log import to make it optional
+let log: any
+try {
+  // Use dynamic import to avoid build issues
+  log = require("electron-log/renderer")
+  console.log("[PRELOAD] electron-log loaded successfully")
+} catch (error) {
+  // Fallback logger if electron-log isn't available
+  log = {
+    info: (...args: any[]) => console.info("[INFO]", ...args),
+    warn: (...args: any[]) => console.warn("[WARN]", ...args),
+    error: (...args: any[]) => console.error("[ERROR]", ...args),
+    debug: (...args: any[]) => console.debug("[DEBUG]", ...args),
+  }
+  console.warn("[PRELOAD] electron-log not available, using fallback logger")
+}
 
 // Log that preload is running
-//log.info("Preload script executing", { source: "preload" })
-
+log.info("Preload script executing", { source: "preload" })
 contextBridge.exposeInMainWorld('electronAPI', {
   saveYaml: (content: string, env: string) => ipcRenderer.send('save-yaml', content, env),
   commitYamlToGit: (content: string, env: string) => ipcRenderer.send('commit-yaml-to-git', content, env),
