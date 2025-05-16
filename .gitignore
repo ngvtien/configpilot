@@ -1,5 +1,6 @@
 # .gitignore
 dist/
+dist/electron/
 node_modules/
 .DS_Store
 *.log
