@@ -1,5 +1,3 @@
-// electron/types/logging.ts
-
 // Define the log levels
 export enum LogLevel {
     ERROR = "error",

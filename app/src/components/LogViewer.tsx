@@ -84,7 +84,7 @@ const LogViewer: React.FC<LogViewerProps> = ({
       }
     })
 
-    return unsubscribe
+    return () => unsubscribe()
   }, [maxEntries])
 
   // Apply filters when logs or filter criteria change

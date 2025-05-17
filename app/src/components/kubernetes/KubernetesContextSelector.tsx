@@ -4,6 +4,7 @@ import React from "react"
 import { useState, useEffect } from "react"
 import { ChevronDown, Server, CheckCircle, AlertTriangle } from "lucide-react"
 import KubernetesService from "../../services/KubernetesService"
+import LoggingService from "../../services/LoggingService"
 
 interface KubernetesContext {
   name: string
@@ -25,7 +26,8 @@ const KubernetesContextSelector: React.FC<KubernetesContextSelectorProps> = ({
   showLabel = true,
   initialContext = "",
 }) => {
-  console.log("[KubernetesContextSelector] Rendering component with initialContext:", initialContext)
+  //LoggingService.info("[KubernetesContextSelector]", "Rendering component with initialContext")
+  //LoggingService.log("[KubernetesContextSelector] Rendering component with initialContext:", initialContext)
   const [contexts, setContexts] = useState<KubernetesContext[]>([])
   const [currentContext, setCurrentContext] = useState<string>(initialContext)
   const [isLoading, setIsLoading] = useState<boolean>(true)
@@ -34,17 +36,18 @@ const KubernetesContextSelector: React.FC<KubernetesContextSelectorProps> = ({
   const [isSimulated, setIsSimulated] = useState<boolean>(false)
 
   useEffect(() => {
-    console.log("[KubernetesContextSelector] Component mounted, loading contexts")
+    LoggingService.info("[KubernetesContextSelector]", "Component mounted, loading contexts")
     loadContexts()
 
     // Check if we're in simulation mode by checking if the electron bridge is available
-    setIsSimulated(!window.electron)
+    setIsSimulated(!window.Electron)
   }, [])
 
   // Add a new useEffect to handle initialContext changes
   useEffect(() => {
     if (initialContext && initialContext !== currentContext && !isLoading) {
-      console.log("[KubernetesContextSelector] initialContext changed, updating context:", initialContext)
+      //LoggingService.info("[KubernetesContextSelector]", "initialContext changed updating context", initialContext)
+      LoggingService.info("[KubernetesContextSelector]", "initialContext changed updating context")
       handleContextChange(initialContext)
     }
   }, [initialContext, isLoading])
@@ -64,8 +67,13 @@ const KubernetesContextSelector: React.FC<KubernetesContextSelectorProps> = ({
 
     document.addEventListener("mousedown", handleClickOutside)
     return () => {
-      console.log("[KubernetesContextSelector] Removing click-outside handler")
+      LoggingService.info("[KubernetesContextSelector]", " Removing click-outside handler")
       document.removeEventListener("mousedown", handleClickOutside)
+
+      //LoggingService.info("HomePage", "Component mounted")
+      LoggingService.debug("SettingsPanel", "Fetching user preferences", { userId: 123 })
+//LoggingService.error("DataLoader", "Failed to load config", error)
+
     }
   }, [isOpen])
 
@@ -75,9 +83,9 @@ const KubernetesContextSelector: React.FC<KubernetesContextSelectorProps> = ({
       setIsLoading(true)
       setError(null)
 
-      console.log("[KubernetesContextSelector] Calling KubernetesService.loadContexts")
+      LoggingService.info("[KubernetesContextSelector]", "Calling KubernetesService.loadContexts")
       const contextList = await KubernetesService.loadContexts()
-      console.log("[KubernetesContextSelector] Contexts loaded:", contextList)
+      LoggingService.info("[KubernetesContextSelector]", "Contexts loaded:", contextList)
 
       setContexts(contextList)
 
@@ -88,7 +96,7 @@ const KubernetesContextSelector: React.FC<KubernetesContextSelectorProps> = ({
       setIsLoading(false)
       console.log("[KubernetesContextSelector] Contexts loaded successfully")
     } catch (err) {
-      console.error("[KubernetesContextSelector] Failed to load contexts:", err)
+      LoggingService.error("[KubernetesContextSelector] Failed to load contexts:", err)
       setError("Failed to load Kubernetes contexts")
       setIsLoading(false)
     }
@@ -109,7 +117,7 @@ const KubernetesContextSelector: React.FC<KubernetesContextSelectorProps> = ({
       setIsOpen(false)
       console.log("[KubernetesContextSelector] Dropdown closed")
     } catch (err) {
-      console.error(`[KubernetesContextSelector] Failed to set context to ${contextName}:`, err)
+      LoggingService.error(`[KubernetesContextSelector] Failed to set context to ${contextName}:`, err)
       setError(`Failed to set context to ${contextName}`)
     }
   }

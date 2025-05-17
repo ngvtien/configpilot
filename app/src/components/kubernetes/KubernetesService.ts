@@ -21,11 +21,13 @@ interface KubernetesContext {
   class KubernetesService {
     private currentContext = ""
   
+    
     // Load kubeconfig and get available contexts
     public async loadContexts(): Promise<KubernetesContext[]> {
+      const log = window.electronAPI.logger;
       try {
-        if (!window.electron) {
-          console.warn("Electron bridge not available, using mock data")
+        if (!window.electronAPI) {
+          log.warn("Electron bridge not available, using mock data")
           return [
             { name: "docker-desktop", cluster: "docker-desktop", user: "docker-desktop" },
             { name: "minikube", cluster: "minikube", user: "minikube" },
@@ -33,7 +35,7 @@ interface KubernetesContext {
           ]
         }
   
-        const kubeConfigData = await window.electron.loadKubeConfig()
+        const kubeConfigData = await window.electronAPI.loadKubeConfig()
   
         // Parse the kubeconfig data
         // In a real app, you'd use the KubeConfig class from @kubernetes/client-node
@@ -91,13 +93,13 @@ interface KubernetesContext {
     // Set the current context
     public async setContext(contextName: string): Promise<boolean> {
       try {
-        if (!window.electron) {
+        if (!window.Electron) {
           console.warn("Electron bridge not available, simulating context change")
           this.currentContext = contextName
           return true
         }
   
-        const result = await window.electron.setKubeContext(contextName)
+        const result = await window.Electron.setKubeContext(contextName)
         if (result.success) {
           this.currentContext = contextName
           return true
@@ -117,12 +119,12 @@ interface KubernetesContext {
     // Get resources of a specific type
     public async getResources(resourceType: string, namespace?: string): Promise<any[]> {
       try {
-        if (!window.electron) {
+        if (!window.Electron) {
           console.warn("Electron bridge not available, using mock data")
           return this.getMockResources(resourceType)
         }
   
-        const result = await window.electron.getKubernetesResources(resourceType, namespace, this.currentContext)
+        const result = await window.Electron.getKubernetesResources(resourceType, namespace, this.currentContext)
   
         if (result.success) {
           return result.items
@@ -137,12 +139,12 @@ interface KubernetesContext {
     // Apply YAML to the cluster
     public async applyYaml(yamlContent: string, namespace?: string): Promise<any> {
       try {
-        if (!window.electron) {
+        if (!window.Electron) {
           console.warn("Electron bridge not available, simulating YAML apply")
           return { success: true, message: "YAML applied (simulated)" }
         }
   
-        const result = await window.electron.applyYaml(yamlContent, namespace)
+        const result = await window.Electron.applyYaml(yamlContent, namespace)
         if (result.success) {
           return result
         }
@@ -156,12 +158,12 @@ interface KubernetesContext {
     // Delete a resource
     public async deleteResource(resourceType: string, name: string, namespace?: string): Promise<any> {
       try {
-        if (!window.electron) {
+        if (!window.Electron) {
           console.warn("Electron bridge not available, simulating resource deletion")
           return { success: true, message: `${resourceType} ${name} deleted (simulated)` }
         }
   
-        const result = await window.electron.deleteKubernetesResource(resourceType, name, namespace, this.currentContext)
+        const result = await window.Electron.deleteKubernetesResource(resourceType, name, namespace, this.currentContext)
   
         if (result.success) {
           return result
@@ -180,7 +182,7 @@ interface KubernetesContext {
       callback: (type: string, obj: any) => void,
     ): Promise<void> {
       try {
-        if (!window.electron) {
+        if (!window.Electron) {
           console.warn("Electron bridge not available, watch not supported")
           return
         }
@@ -192,7 +194,7 @@ interface KubernetesContext {
         }) as EventListener)
   
         // Start the watch
-        await window.electron.watchKubernetesResources(resourceType, namespace, this.currentContext)
+        await window.Electron.watchKubernetesResources(resourceType, namespace, this.currentContext)
       } catch (error) {
         console.error(`Failed to watch ${resourceType}:`, error)
         throw error
@@ -202,12 +204,12 @@ interface KubernetesContext {
     // Stop watching resources
     public async stopWatchingResources(): Promise<void> {
       try {
-        if (!window.electron) {
+        if (!window.Electron) {
           console.warn("Electron bridge not available, watch not supported")
           return
         }
   
-        await window.electron.stopWatchingKubernetesResources()
+        await window.Electron.stopWatchingKubernetesResources()
       } catch (error) {
         console.error("Failed to stop watching resources:", error)
         throw error
